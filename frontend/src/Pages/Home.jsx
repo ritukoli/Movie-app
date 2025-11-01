@@ -1,6 +1,7 @@
+import { useState } from "react";
 import MovieCard from "../components/MovieCard";
 
-function HomePage() {
+function Home() {
 
     const movies = [
         { id: 1, title: "titanic", release_date: "1996" },
@@ -10,14 +11,25 @@ function HomePage() {
         { id: 5, title: "The Dark Knight", release_date: "2008" },
         { id: 6, title: "The Matrix", release_date: "1999" }
     ]
+    const [SearchQuery, setSearchQuery] = useState("")
+
+    const handleSearch = () =>{
+
+    }
+
 
     return (
         <div className="homePage">
+            <form className="search-from" onSubmit={handleSearch}>
+                <input type="text" placeholder="search for movies" className="search-box" 
+                value={SearchQuery} onChange={(e) => setSearchQuery(e.target.value)}/> 
+                <button type="submit" className="search-button" ><search></search></button>
+            </form>
             <div className="movie-grid">
-                {movies.map(movie => <MovieCard key={movie.id} movie={movie} />)}            
-                </div>
+                {movies.map(movie => movie.title.toLowerCase().startsWith(SearchQuery) && <MovieCard key={movie.id} movie={movie} />)}
+            </div>
         </div>
     )
 }
 
-export default HomePage
+export default Home

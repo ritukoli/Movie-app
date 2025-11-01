@@ -3,7 +3,7 @@ function MovieCard({movie}){
     function FavButton(){
         alert("clicked")
     }
-
+//  a layout for all the movie card (doesnot have any value here)
     return(
         <div className="Movie-card"> 
             <div className="Movie-poster">

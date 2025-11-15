@@ -5,16 +5,16 @@ function MovieCard({movie}){
     }
 //  a layout for all the movie card (doesnot have any value here)
     return(
-        <div className="Movie-card"> 
-            <div className="Movie-poster">
-                <img src={movie.url} alt={movie.title}/>
+        <div className="movie-card"> 
+            <div className="movie-poster">
+                <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title}/>
             </div>
-            <div className="Movie-overlay">
-                <button className="Fav-button" onClick={FavButton}>🤍</button>
+            <div className="movie-overlay">
+                <button className="favorite-btn" onClick={FavButton}>🤍</button>
             </div>
-            <div className="Movie-info">
+            <div className="movie-info">
                 <h3>{movie.title}</h3>
-                <p>{movie.release_date}</p>
+                <p>{movie.release_date?.split("-")[0]}</p>
             </div>
         </div>
     )
